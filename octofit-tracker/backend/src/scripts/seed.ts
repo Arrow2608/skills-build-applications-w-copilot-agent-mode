@@ -4,9 +4,10 @@ import Team from '../models/team.js';
 import Activity from '../models/activity.js';
 import LeaderboardEntry from '../models/leaderboard.js';
 import Workout from '../models/workout.js';
+import { MONGO_URI } from '../config/database.js';
 
 // Seed the octofit_db database with test data
-const mongoUri = process.env.MONGODB_URI ?? 'mongodb://127.0.0.1:27017/octofit_db';
+const mongoUri = process.env.MONGODB_URI ?? MONGO_URI;
 
 async function seed() {
   console.log('Connecting to MongoDB to seed the octofit_db database with test data...');
