@@ -12,5 +12,6 @@
     "resolveJsonModule": true,
     "isolatedModules": false
   },
-  "include": ["src"]
+  "include": ["src"],
+  "exclude": ["dist"]
 }
