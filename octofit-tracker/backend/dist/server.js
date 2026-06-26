@@ -1,3 +1,4 @@
+import cors from 'cors';
 import express from 'express';
 import usersRouter from './routes/users.js';
 import teamsRouter from './routes/teams.js';
@@ -9,6 +10,10 @@ const app = express();
 const port = Number(process.env.PORT ?? 8000);
 const codespaceHost = process.env.CODESPACE_NAME ? `${process.env.CODESPACE_NAME}-8000.app.github.dev` : null;
 const apiHost = codespaceHost ? `https://${codespaceHost}` : `http://localhost:${port}`;
+app.use(cors({
+    origin: true,
+    credentials: true,
+}));
 app.use(express.json());
 app.get('/', (_req, res) => {
     res.json({
